@@ -1,5 +1,7 @@
 package service;
 
+import model.Paciente;
+
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
@@ -15,4 +17,7 @@ public interface ConsultorioService {
     @WebMethod String listarClientes();
     @WebMethod void data1();
     @WebMethod void alterarNomeCliente();
+    @WebMethod boolean paceinteExiste(Paciente p );
+    @WebMethod Paciente retornarPaciente(Paciente p);
+
 }
