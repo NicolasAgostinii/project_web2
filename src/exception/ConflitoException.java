@@ -1,5 +1,6 @@
 package exception;
-
-public class ConflitoException {
-
+public class ConflitoException extends exception {
+    public ConflitoException (String mensagem){
+        super(mensagem);
+    }
 }
