@@ -7,6 +7,7 @@ import java.time.format.ResolverStyle;
 
 public class Paciente {
 	private int id;
+	private int consultorioId;
 	private String nome;
 	private String cpf;
 	private String telefone;
@@ -17,12 +18,14 @@ public class Paciente {
 
 	public Paciente(
 	        int id,
+	        int consultorioId,
 	        String nome,
 	        String cpf,
 	        String telefone,
 	        String dataNascimento) {
 
 	    setId(id);
+	    setConsultorioId(consultorioId);
 	    setNome(nome);
 	    setCpf(cpf);
 	    setTelefone(telefone);
@@ -32,6 +35,20 @@ public class Paciente {
 	private static final DateTimeFormatter FORMATO_DATA =
 	        DateTimeFormatter.ofPattern("dd/MM/uuuu")
 	                         .withResolverStyle(ResolverStyle.STRICT);
+	
+	public int getConsultorioId() {
+	    return consultorioId;
+	}
+	
+	public void setConsultorioId(int consultorioId) {
+	    if (consultorioId <= 0) {
+	        throw new IllegalArgumentException(
+	            "O ID do consultório deve ser maior que zero."
+	        );
+	    }
+
+	    this.consultorioId = consultorioId;
+	}
 	
 	
 	public int getId() {
@@ -125,9 +142,11 @@ public class Paciente {
 	}
 	
 	@Override
+	@Override
 	public String toString() {
 	    return "Paciente {" +
 	            "id=" + id +
+	            ", consultorioId=" + consultorioId +
 	            ", nome='" + nome + '\'' +
 	            ", cpf='" + cpf + '\'' +
 	            ", telefone='" + telefone + '\'' +

@@ -1,5 +1,7 @@
 package model;
 
-public class StatusConsulta {
-
+public enum StatusConsulta {
+    AGENDADA,
+    REALIZADA,
+    CANCELADA
 }
