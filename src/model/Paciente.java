@@ -65,7 +65,7 @@ public class Paciente {
 			throw new IllegalArgumentException("O CPF do paciente é obrigatório");
 		}
 		
-		else if(!cpf.matches("\\d{11}")) {
+		if(!cpf.matches("\\d{11}")) {
 			throw new IllegalArgumentException("O CPF deve conter exatamente 11 números.");
 		}
 		
