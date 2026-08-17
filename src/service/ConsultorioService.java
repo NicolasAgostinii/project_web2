@@ -13,13 +13,13 @@ import java.util.Date;
 @SOAPBinding(style = SOAPBinding.Style.RPC)
 public interface ConsultorioService {
     @WebMethod void adicionarCliente();
-    @WebMethod void adicionarConsultorio();
+    @WebMethod void adicionarConsulta();
     @WebMethod void removerCliente();
-    @WebMethod void removerConsultario();
+    @WebMethod void removerConsulta();
     @WebMethod String listarClientes();
     @WebMethod String listarProdutos();
     @WebMethod void alterarNomeCliente();
-    @WebMethod void alterarNomeConsultorio();
+    @WebMethod void alterarConsulta();
     @WebMethod Paciente listarPaciente(Paciente p);
     @WebMethod Consulta listarConsultas(Consulta c);
 }
