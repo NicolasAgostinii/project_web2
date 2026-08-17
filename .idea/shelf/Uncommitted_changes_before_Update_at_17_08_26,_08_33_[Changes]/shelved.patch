@@ -1,0 +1,56 @@
+Index: Consultorio_Soap/Consultorio_Soap/src/controller/PacienteController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package controller;\n\npublic class PacienteController {\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Consultorio_Soap/Consultorio_Soap/src/controller/PacienteController.java b/Consultorio_Soap/Consultorio_Soap/src/controller/PacienteController.java
+--- a/Consultorio_Soap/Consultorio_Soap/src/controller/PacienteController.java	(revision e9bb4ff30cb47b99f726d4bde4f1a8a15e351196)
++++ b/Consultorio_Soap/Consultorio_Soap/src/controller/PacienteController.java	(date 1786966419933)
+@@ -1,5 +1,7 @@
+ package controller;
+ 
++
++
+ public class PacienteController {
+ 
+ }
+Index: Consultorio_Soap/Consultorio_Soap/src/client/ClienteSOAP.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package client;\n\npublic class ClienteSOAP {\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Consultorio_Soap/Consultorio_Soap/src/client/ClienteSOAP.java b/Consultorio_Soap/Consultorio_Soap/src/client/ClienteSOAP.java
+--- a/Consultorio_Soap/Consultorio_Soap/src/client/ClienteSOAP.java	(revision e9bb4ff30cb47b99f726d4bde4f1a8a15e351196)
++++ b/Consultorio_Soap/Consultorio_Soap/src/client/ClienteSOAP.java	(date 1786966419937)
+@@ -1,5 +1,8 @@
+ package client;
+ 
+ public class ClienteSOAP {
++    static void main() {
++
++    }
+ 
+ }
+Index: Consultorio_Soap/Consultorio_Soap/src/model/Paciente.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model;\n\npublic class Paciente {\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Consultorio_Soap/Consultorio_Soap/src/model/Paciente.java b/Consultorio_Soap/Consultorio_Soap/src/model/Paciente.java
+--- a/Consultorio_Soap/Consultorio_Soap/src/model/Paciente.java	(revision e9bb4ff30cb47b99f726d4bde4f1a8a15e351196)
++++ b/Consultorio_Soap/Consultorio_Soap/src/model/Paciente.java	(date 1786966120722)
+@@ -1,5 +1,8 @@
+ package model;
+ 
++@WebService
++@SOAPBinding();
+ public class Paciente {
++        private  init esandkjabdh;
+ 
+ }
