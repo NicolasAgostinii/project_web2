@@ -9,6 +9,7 @@ public class TestePaciente {
         try {
             Paciente paciente = new Paciente(
                 1,
+                1,
                 "Marco",
                 "12345678901",
                 "(47) 99999-8888",
