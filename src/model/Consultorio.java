@@ -1,40 +1,31 @@
 package model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Consultorio {
-    private int id;
     private String nome;
     private String cnpj;
     private String telefone;
     private String endereco;
+    private Map<Integer, Paciente> pacientes = new HashMap<>();
+    
+    
 
     public Consultorio() {
 
     }
 
     public Consultorio(
-            int id,
             String nome,
             String cnpj,
             String telefone,
             String endereco) {
 
-        setId(id);
         setNome(nome);
         setCnpj(cnpj);
         setTelefone(telefone);
         setEndereco(endereco);
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        if (id <= 0) {
-            throw new IllegalArgumentException("ID deve ser maior que 0");
-        }
-
-        this.id = id;
     }
 
     public String getNome() {
@@ -100,10 +91,21 @@ public class Consultorio {
         this.endereco = endereco;
     }
 
+    private void adicionarPaciente(Paciente paciente) {
+        if (paciente == null) {
+            throw new IllegalArgumentException("O paciente não pode ser nulo.");
+        }
+
+        if (pacientes.containsKey(paciente.getId())) {
+            throw new IllegalArgumentException("Já existe um paciente com esse ID.");
+        }
+
+        pacientes.put(paciente.getId(), paciente);
+    }
+
     @Override
     public String toString() {
         return "Consultorio {" +
-                "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", cnpj='" + cnpj + '\'' +
                 ", telefone='" + telefone + '\'' +

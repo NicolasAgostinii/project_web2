@@ -1,6 +1,5 @@
 package service;
 
-import model.Consulta;
 import model.Paciente;
 
 import javax.jws.WebMethod;
@@ -21,5 +20,4 @@ public interface ConsultorioService {
     @WebMethod void alterarNomeCliente();
     @WebMethod void alterarNomeConsultorio();
     @WebMethod Paciente listarPaciente(Paciente p);
-    @WebMethod Consulta listarConsultas(Consulta c);
 }
