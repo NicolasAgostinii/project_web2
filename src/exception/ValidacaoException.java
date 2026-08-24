@@ -1,5 +1,7 @@
 package exception;
 
-public class ValidacaoException {
-
+public class ValidacaoException extends Exception {
+    public ValidacaoException (String mensagem){
+        super(mensagem);
+    }
 }
