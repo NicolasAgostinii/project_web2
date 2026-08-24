@@ -4,28 +4,38 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Consultorio {
+    private int id;
     private String nome;
     private String cnpj;
     private String telefone;
     private String endereco;
     private Map<Integer, Paciente> pacientes = new HashMap<>();
-    
-    
 
     public Consultorio() {
 
     }
 
     public Consultorio(
+            int id,
             String nome,
             String cnpj,
             String telefone,
             String endereco) {
 
+        setId(id);
         setNome(nome);
         setCnpj(cnpj);
         setTelefone(telefone);
         setEndereco(endereco);
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -91,7 +101,7 @@ public class Consultorio {
         this.endereco = endereco;
     }
 
-    private void adicionarPaciente(Paciente paciente) {
+    public void addPaciente(Paciente paciente) {
         if (paciente == null) {
             throw new IllegalArgumentException("O paciente não pode ser nulo.");
         }
@@ -102,6 +112,13 @@ public class Consultorio {
 
         pacientes.put(paciente.getId(), paciente);
     }
+
+
+    public void removerPaciente(Paciente p) {
+        pacientes.remove(p);
+    }
+
+
 
     @Override
     public String toString() {

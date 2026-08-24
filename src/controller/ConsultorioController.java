@@ -9,36 +9,28 @@ import exception.ConflitoException;
 import exception.EntidadeNaoEncontradaException;
 import exception.ValidacaoException;
 import model.Consultorio;
+import model.Paciente;
 
+import javax.jws.WebService;
+
+
+@WebService
 public class ConsultorioController {
 
+    private Consultorio c;
     private  Map<Integer, Consultorio> consultorios = new HashMap<>();
 
-    public Consultorio cadastrar(Consultorio consultorio)
-            throws ValidacaoException, ConflitoException {
-
-        if (consultorio == null) {
-            throw new ValidacaoException(
-                "O consultório não pode ser nulo."
-            );
-        }
-
-        if (consultorios.containsKey(consultorio.getId())) {
-            throw new ConflitoException(
-                "Já existe um consultório com esse ID."
-            );
-        }
-
-        if (cnpjJaCadastrado(consultorio.getCnpj(), consultorio.getId())) {
-            throw new ConflitoException(
-                "Já existe um consultório com esse CNPJ."
-            );
-        }
-
-        consultorios.put(consultorio.getId(), consultorio);
-
-        return consultorio;
+    public void adicionarPaciente(int id , Paciente p) {
+        c = consultorios.get(id);
+        c.addPaciente(p);
     }
+
+    public void  cadastrar( int id,String nome, String cnpj, String telefone, String endereco){
+        Consultorio consultorio= new Consultorio(  id, nome,  cnpj,  telefone,  endereco);
+        consultorios.put(id,consultorio);
+    }
+
+
 
     public Consultorio buscarPorId(int id)
             throws EntidadeNaoEncontradaException {
