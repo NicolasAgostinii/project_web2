@@ -5,9 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import exception.ConflitoException;
-import exception.EntidadeNaoEncontradaException;
-import exception.ValidacaoException;
+
 import model.Consultorio;
 import model.Paciente;
 import service.ConsultorioService;
