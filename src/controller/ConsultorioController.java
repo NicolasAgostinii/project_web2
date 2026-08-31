@@ -19,11 +19,11 @@ import javax.jws.WebService;
 @WebService
 public class ConsultorioController implements ConsultorioService {
 
-    private  Map<Integer, Consultorio> consultorios = new HashMap<>();
+    private Map<Integer, Consultorio> consultorios = new HashMap<>();
 
     @Override
-    public void adicionarPaciente(int idConsultorio, int idPaciente, String nome,String cpf, String telefone,String drtNascimento) {
-        Paciente paciente = new Paciente( idPaciente,  nome, cpf,  telefone, drtNascimento);
+    public void adicionarPaciente(int idConsultorio, int idPaciente, String nome, String cpf, String telefone, String drtNascimento) {
+        Paciente paciente = new Paciente(idPaciente, nome, cpf, telefone, drtNascimento);
         if (consultorios.containsKey(idConsultorio)) {
             consultorios.get(idConsultorio).addPaciente(paciente);
 
@@ -31,20 +31,21 @@ public class ConsultorioController implements ConsultorioService {
             throw new NullPointerException("O consultorio nao existe");
         }
     }
+
     @Override
     public void adicionarConsulta(int id, String nome, String cnpj, String telefone, String endereco) {
-        Consultorio consultorio = new Consultorio(id,nome,cnpj,telefone,endereco);
+        Consultorio consultorio = new Consultorio(id, nome, cnpj, telefone, endereco);
 
         if (consultorios.containsKey(id)) {
             throw new IllegalArgumentException("Esse consultorio já existe");
         } else {
-            consultorios.put(id,consultorio);
+            consultorios.put(id, consultorio);
         }
     }
 
     @Override
-    public void removerCliente(int idConsultotrio, int idPacinte, String nome,String cpf, String telefone,String drtNascimento) {
-        Paciente paciente = new Paciente(  idPacinte,nome, cpf,  telefone, drtNascimento);
+    public void removerCliente(int idConsultotrio, int idPacinte, String nome, String cpf, String telefone, String drtNascimento) {
+        Paciente paciente = new Paciente(idPacinte, nome, cpf, telefone, drtNascimento);
 
         if (consultorios.containsKey(idConsultotrio)) {
             if (consultorios.get(idConsultotrio).isExist(idPacinte)) {
@@ -59,8 +60,7 @@ public class ConsultorioController implements ConsultorioService {
     public void removerConsulta(int idConsulta) {
         if (consultorios.containsKey(idConsulta)) {
             consultorios.remove(idConsulta);
-        }
-        else {
+        } else {
             throw new NullPointerException("Consulta nao existe");
         }
     }
@@ -83,21 +83,37 @@ public class ConsultorioController implements ConsultorioService {
 
     @Override
     public String listarConsultas() {
-        return "";
+
+        if (consultorios.isEmpty()) {
+            return "Não existem consultórios cadastrados.";
+        }
+
+        StringBuilder temp = new StringBuilder();
+
+        for (Consultorio c : consultorios.values()) {
+            temp.append(c).append("\n");
+        }
+
+        return temp.toString();
     }
 
     @Override
-    public void alterarNomeCliente() {
+    public void alterarNomeCliente(int idConsultorio, int idPaciente, String novoNome) {
+        if (!consultorios.containsKey(idConsultorio)) {
+            throw new NullPointerException("A parada nao existe");
+        }
 
+        Consultorio c = consultorios.get(idConsultorio);
+
+        for (Paciente p : c.getPacientes().values()) {
+            if (idPaciente == p.getId()) {
+                p.setNome(novoNome);
+            }
+        }
     }
 
     @Override
     public void alterarConsulta() {
 
-    }
-
-    @Override
-    public Paciente listarPaciente(Paciente p) {
-        return null;
     }
 }
