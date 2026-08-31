@@ -18,5 +18,9 @@ public interface ConsultorioService {
     @WebMethod String listarClientes(int idConsultorio);
     @WebMethod String listarConsultas();
     @WebMethod void alterarNomeCliente(int idConsultorio,int idCliente, String novoNome);
-    @WebMethod void alterarConsulta();
+    @WebMethod void alterarConsulta(int id,
+                                    String novoNome,
+                                    String novoCnpj,
+                                    String novoTelefone,
+                                    String novoEndereco);
 }

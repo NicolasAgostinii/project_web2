@@ -113,7 +113,22 @@ public class ConsultorioController implements ConsultorioService {
     }
 
     @Override
-    public void alterarConsulta() {
+    public void alterarConsulta(
+            int id,
+            String novoNome,
+            String novoCnpj,
+            String novoTelefone,
+            String novoEndereco) {
 
+        if (!consultorios.containsKey(id)) {
+            throw new NullPointerException("O consultório não existe");
+        }
+
+        Consultorio c = consultorios.get(id);
+
+        c.setNome(novoNome);
+        c.setCnpj(novoCnpj);
+        c.setTelefone(novoTelefone);
+        c.setEndereco(novoEndereco);
     }
 }
