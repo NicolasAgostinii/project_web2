@@ -54,6 +54,14 @@ public class Consultorio {
         return cnpj;
     }
 
+    public Map<Integer, Paciente> getPacientes() {
+        return pacientes;
+    }
+
+    public void setPacientes(Map<Integer, Paciente> pacientes) {
+        this.pacientes = pacientes;
+    }
+
     public void setCnpj(String cnpj) {
         if (cnpj == null || cnpj.isBlank()) {
             throw new IllegalArgumentException("O CNPJ do consultorio é obrigatório");
@@ -121,7 +129,6 @@ public class Consultorio {
     public boolean isExist(int idPaciente) {
         return pacientes.containsKey(idPaciente);
     }
-
 
     @Override
     public String toString() {

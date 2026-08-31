@@ -67,7 +67,18 @@ public class ConsultorioController implements ConsultorioService {
 
     @Override
     public String listarClientes(int idConsultorio) {
-        return "";
+        if (!consultorios.containsKey(idConsultorio)) {
+            throw new NullPointerException("O consultório não existe");
+        }
+
+        Consultorio c = consultorios.get(idConsultorio);
+
+        StringBuilder temp = new StringBuilder();
+
+        for (Paciente p : c.getPacientes().values()) {
+            temp.append(p).append("\n");
+        }
+        return temp.toString();
     }
 
     @Override
