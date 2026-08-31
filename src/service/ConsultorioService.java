@@ -11,12 +11,12 @@ import java.util.Date;
 @WebService
 @SOAPBinding(style = SOAPBinding.Style.RPC)
 public interface ConsultorioService {
-    @WebMethod void adicionarCliente();
-    @WebMethod void adicionarConsulta();
-    @WebMethod void removerCliente();
-    @WebMethod void removerConsulta();
-    @WebMethod String listarClientes();
-    @WebMethod String listarProdutos();
+    @WebMethod void adicionarPaciente(int idConsultorio, int idPaciente, String nome,String cpf, String telefone,String drtNascimento);
+    @WebMethod void adicionarConsulta(int id, String nome, String cnpj, String telefone, String endereco);
+    @WebMethod void removerCliente(int idConsultotrio, int idPacinte, String nome,String cpf, String telefone,String drtNascimento);
+    @WebMethod void removerConsulta(int idConsulta);
+    @WebMethod String listarClientes(int idConsultorio);
+    @WebMethod String listarConsultas();
     @WebMethod void alterarNomeCliente();
     @WebMethod void alterarConsulta();
     @WebMethod Paciente listarPaciente(Paciente p);

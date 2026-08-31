@@ -118,6 +118,9 @@ public class Consultorio {
         pacientes.remove(p);
     }
 
+    public boolean isExist(int idPaciente) {
+        return pacientes.containsKey(idPaciente);
+    }
 
 
     @Override

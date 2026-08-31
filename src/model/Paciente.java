@@ -8,12 +8,11 @@ import java.time.format.ResolverStyle;
 public class Paciente {
 	private int id;
 	private String nome;
+    private int consultorioId;
 	private String cpf;
 	private String telefone;
 	private String dataNascimento;
-	private int consultorioId;
-
-	public Paciente() {
+	public Paciente(int idPaciente, String nome, String cpf, String telefone, String drtNascimento) {
 	}
 
 	public Paciente(
