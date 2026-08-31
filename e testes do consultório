@@ -1,0 +1,11 @@
+ .classpath                                        |  55 [32m++++[m[31m----[m
+ src/exception/ConflitoException.java              |   2 [32m+[m[31m-[m
+ src/exception/EntidadeNaoEncontradaException.java |   2 [32m+[m[31m-[m
+ src/exception/ValidacaoException.java             |   2 [32m+[m[31m-[m
+ src/model/Consulta.java                           |  90 [32m++++++++++[m[31m---[m
+ src/model/Consultorio.java                        | 110 [32m+++++++++++++++[m[31m-[m
+ src/model/Paciente.java                           | 153 [32m+++++++++++[m[31m----------[m
+ src/teste/TesteConsulta.java                      | 154 [32m++++++++++++++++++++++[m
+ src/teste/TesteConsultorio.java                   | 127 [32m++++++++++++++++++[m
+ src/teste/TestePaciente.java                      |   1 [32m+[m
+ 10 files changed, 576 insertions(+), 120 deletions(-)

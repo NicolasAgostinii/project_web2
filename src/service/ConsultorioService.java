@@ -1,6 +1,5 @@
 package service;
 
-import model.Consulta;
 import model.Paciente;
 
 import javax.jws.WebMethod;
@@ -12,14 +11,13 @@ import java.util.Date;
 @WebService
 @SOAPBinding(style = SOAPBinding.Style.RPC)
 public interface ConsultorioService {
-    @WebMethod void adicionarCliente();
-    @WebMethod void adicionarConsultorio();
-    @WebMethod void removerCliente();
-    @WebMethod void removerConsultario();
-    @WebMethod String listarClientes();
-    @WebMethod String listarProdutos();
+    @WebMethod void adicionarPaciente(int idConsultorio, int idPaciente, String nome,String cpf, String telefone,String drtNascimento);
+    @WebMethod void adicionarConsulta(int id, String nome, String cnpj, String telefone, String endereco);
+    @WebMethod void removerCliente(int idConsultotrio, int idPacinte, String nome,String cpf, String telefone,String drtNascimento);
+    @WebMethod void removerConsulta(int idConsulta);
+    @WebMethod String listarClientes(int idConsultorio);
+    @WebMethod String listarConsultas();
     @WebMethod void alterarNomeCliente();
-    @WebMethod void alterarNomeConsultorio();
+    @WebMethod void alterarConsulta();
     @WebMethod Paciente listarPaciente(Paciente p);
-    @WebMethod Consulta listarConsultas(Consulta c);
 }
