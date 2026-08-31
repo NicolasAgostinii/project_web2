@@ -11,18 +11,27 @@ import java.util.Date;
 @WebService
 @SOAPBinding(style = SOAPBinding.Style.RPC)
 public interface ConsultorioService {
-    @WebMethod void adicionarPaciente(int idConsultorio, int idPaciente, String nome,String cpf, String telefone,String drtNascimento);
-    @WebMethod void adicionarConsulta(int id, String nome, String cnpj, String telefone, String endereco);
-    @WebMethod void removerCliente(int idConsultotrio, int idPacinte, String nome,String cpf, String telefone,String drtNascimento);
-    @WebMethod void removerConsulta(int idConsulta);
-    @WebMethod String listarClientes(int idConsultorio);
-    @WebMethod String listarConsultas();
-<<<<<<< HEAD
-    @WebMethod void alterarNomeCliente(int idConsultorio, int idPaciente, String novoNome);
-    @WebMethod void alterarConsulta(int id,String novoNome, String novoCnpj, String novoTelefone,  String novoEndereco);
-    @WebMethod Paciente listarPaciente(Paciente p);
-=======
-    @WebMethod void alterarNomeCliente(int idConsultorio,int idCliente, String novoNome);
-    @WebMethod void alterarConsulta(int id, String novoNome, String novoCnpj, String novoTelefone, String novoEndereco);
->>>>>>> 1daefc3 (Comitando as parada)
+    @WebMethod
+    void adicionarPaciente(int idConsultorio, int idPaciente, String nome, String cpf, String telefone, String drtNascimento);
+
+    @WebMethod
+    void adicionarConsulta(int id, String nome, String cnpj, String telefone, String endereco);
+
+    @WebMethod
+    void removerCliente(int idConsultotrio, int idPacinte, String nome, String cpf, String telefone, String drtNascimento);
+
+    @WebMethod
+    void removerConsulta(int idConsulta);
+
+    @WebMethod
+    String listarClientes(int idConsultorio);
+
+    @WebMethod
+    String listarConsultas();
+
+    @WebMethod
+    void alterarNomeCliente(int idConsultorio, int idPaciente, String novoNome);
+
+    @WebMethod
+    void alterarConsulta(int id, String novoNome, String novoCnpj, String novoTelefone, String novoEndereco);
 }
