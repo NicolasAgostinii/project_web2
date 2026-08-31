@@ -9,47 +9,25 @@ public class Paciente {
 	private int id;
 	private int consultorioId;
 	private String nome;
-    private int consultorioId;
 	private String cpf;
 	private String telefone;
 	private String dataNascimento;
+
 	public Paciente(int idPaciente, String nome, String cpf, String telefone, String drtNascimento) {
 	}
 
-	public Paciente(
-        int id,
-        int consultorioId,
-        String nome,
-        String cpf,
-        String telefone,
-        String dataNascimento) {
+	public Paciente(int id, int consultorioId, String nome, String cpf, String telefone, String dataNascimento) {
 
-    setId(id);
-    setConsultorioId(consultorioId);
-    setNome(nome);
-    setCpf(cpf);
-    setTelefone(telefone);
-    setDataNascimento(dataNascimento);
-}
+		setId(id);
+		setConsultorioId(consultorioId);
+		setNome(nome);
+		setCpf(cpf);
+		setTelefone(telefone);
+		setDataNascimento(dataNascimento);
+	}
 
-private static final DateTimeFormatter FORMATO_DATA =
-        DateTimeFormatter.ofPattern("dd/MM/uuuu")
-                         .withResolverStyle(ResolverStyle.STRICT);
-
-public int getConsultorioId() {
-    return consultorioId;
-}
-
-public void setConsultorioId(int consultorioId) {
-    if (consultorioId <= 0) {
-        throw new IllegalArgumentException(
-            "O ID do consultório deve ser maior que zero."
-        );
-    }
-
-    this.consultorioId = consultorioId;
-}
-
+	private static final DateTimeFormatter FORMATO_DATA = DateTimeFormatter.ofPattern("dd/MM/uuuu")
+			.withResolverStyle(ResolverStyle.STRICT);
 
 
 	public int getId() {
@@ -130,13 +108,11 @@ public void setConsultorioId(int consultorioId) {
 		try {
 			dataConvertida = LocalDate.parse(dataNascimento, FORMATO_DATA);
 		} catch (DateTimeParseException e) {
-			throw new IllegalArgumentException(
-					"A data de nascimento deve estar no formato dd/MM/aaaa e ser válida.");
+			throw new IllegalArgumentException("A data de nascimento deve estar no formato dd/MM/aaaa e ser válida.");
 		}
 
 		if (dataConvertida.isAfter(LocalDate.now())) {
-			throw new IllegalArgumentException(
-					"A data de nascimento não pode estar no futuro.");
+			throw new IllegalArgumentException("A data de nascimento não pode estar no futuro.");
 		}
 
 		this.dataNascimento = dataConvertida.format(FORMATO_DATA);
@@ -149,24 +125,16 @@ public void setConsultorioId(int consultorioId) {
 
 	public void setConsultorioId(int consultorioId) {
 		if (consultorioId <= 0) {
-			throw new IllegalArgumentException(
-					"O ID do consultório deve ser maior que zero.");
+			throw new IllegalArgumentException("O ID do consultório deve ser maior que zero.");
 		}
 
 		this.consultorioId = consultorioId;
 	}
 
 	@Override
-	@Override
 	public String toString() {
-    return "Paciente {" +
-            "id=" + id +
-            ", consultorioId=" + consultorioId +
-            ", nome='" + nome + '\'' +
-            ", cpf='" + cpf + '\'' +
-            ", telefone='" + telefone + '\'' +
-            ", dataNascimento='" + dataNascimento + '\'' +
-            '}';
+		return "Paciente {" + "id=" + id + ", consultorioId=" + consultorioId + ", nome='" + nome + '\'' + ", cpf='"
+				+ cpf + '\'' + ", telefone='" + telefone + '\'' + ", dataNascimento='" + dataNascimento + '\'' + '}';
 	}
 
 }
